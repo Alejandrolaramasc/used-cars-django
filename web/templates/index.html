@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>
+          Nuestra flota de autos usados
+        </h2>
+        <p>
+          UsedCars nace en el año 2022 para ofrecerte los mejores autos usados del mercado
+        </p>
+        <a href="{% url 'acerca' %}" class="btn btn-outline-light">
+          Conoce más
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4 mb-4">
+    {% for car in public_cars %}
+    <div class="col-6 col-md-3">
+      <div class="card mb-4" style="">
+        <img src="{{ car.image_url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ car.name }}
+          </h5>
+          <p class="card-text">
+            {{ car.description }}
+          </p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- {{ cars }} -->
+</div>
+{% endblock %}
